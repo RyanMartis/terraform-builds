@@ -3,6 +3,16 @@ variable "aws_region" {
   type        = string
 }
 
+variable "aws_az_pub" {
+  description = "AWS AZs for public subnets"
+  type        = string
+}
+
+variable "aws_az_private" {
+  description = "AWS AZs for private subnets"
+  type        = list
+}
+
 variable "vpc_cidr_block" {
   description = "CIDR block for VPC"
   type        = string
@@ -13,6 +23,11 @@ variable "public_subnet_cidr_blocks" {
   type        = list(string)
 }
 
+variable "private_subnet_cidr_blocks" {
+  description = "Available cidr blocks for private subnets"
+  type        = list(string)
+}
+
 variable "env" {
   description = "app environment"
   type        = string
@@ -20,6 +35,11 @@ variable "env" {
 
 variable "vpc_name" {
   description = "vpc name"
+  type        = string
+}
+
+variable "db_subnet_name" {
+  description = "db subnet name"
   type        = string
 }
 
@@ -35,6 +55,16 @@ variable "rt_name" {
 
 variable "pub_subnet_01" {
   description = "public subnet"
+  type        = string
+}
+
+variable "priv_subnet_01" {
+  description = "private subnet"
+  type        = string
+}
+
+variable "priv_subnet_02" {
+  description = "private subnet"
   type        = string
 }
 
