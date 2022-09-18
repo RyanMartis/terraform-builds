@@ -126,6 +126,48 @@ resource "aws_eip" "eip-01" {
     }
 }
 
+# ubuntu server w/nginx
+resource "aws_instance" "web_server" {
+  ami               = var.ec2_web_ami 
+  instance_type     = "t2.micro"
+  availability_zone = "us-east-1a"
+  key_name          = var.ec2_key_name
+
+  network_interface {
+    device_index = 0
+    network_interface_id = aws_network_interface.dev-eni-01.id
+  }
+
+  user_data = <<-EOF
+              #!/bin/bash
+              sudo apt update -y
+              sudo apt install nginx -y
+              sudo systemctl start nginx
+              sudo rm -rf /var/www/html/index.nginx-debian.html
+              sudo bash -c 'echo Ryan NGINX Server > /var/www/html/index.nginx-debian.html'
+              EOF
+
+  tags = {
+    Name = "nginx server"
+  }
+}
 
 
+# RDS
 
+resource "aws_db_instance" "default" {
+  allocated_storage    = 10
+  db_name              = "Ryan"
+  engine               = "postgres"
+  engine_version       = "14.4"
+  instance_class       = "db.t3.micro"
+  username             = var.rds_db_user
+  password             = var.rds_db_pass
+  skip_final_snapshot  = true
+
+  availability_zone = "us-east-1a"
+
+  tags = {
+    Name = "postgres rds"
+  }
+}

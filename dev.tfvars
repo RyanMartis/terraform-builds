@@ -16,4 +16,12 @@ pub_subnet_01 = "dev-pub-subnet-01"
 
 sg_web_ssh = "dev-sg-web-ssh"
 
+# ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20220609 ami-052efd3df9dad4825
+ec2_web_ami = "ami-052efd3df9dad4825"
+
+ec2_key_name = "rm-key"
+
+rds_db_user = "foo"
+
+rds_db_pass = "foobarbaz"
 

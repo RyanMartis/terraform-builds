@@ -43,3 +43,24 @@ variable "sg_web_ssh" {
   type        = string
 }
 
+variable "ec2_web_ami" {
+  description = "ami for ec2 web servers"
+  type        = string
+}
+
+variable "ec2_key_name" {
+  description = "ec2 keypair in aws"
+  type        = string
+}
+
+variable "rds_db_user" {
+  description = "db username"
+  type        = string
+}
+
+variable "rds_db_pass" {
+  description = "db password"
+  type = string
+  sensitive = true
+}
+
