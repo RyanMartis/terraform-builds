@@ -42,4 +42,7 @@ SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 25
 Type "help" for help.
 postgres=>
 ```
+# cleardown
 
+- once complete don't forget to delete everything! 
+- run `terraform destroy -var-file="dev.tfvars"`
