@@ -1,0 +1,10 @@
+# terraform dirs
+**/.terraform/*
+.terraform*
+
+# tfstate
+*.tfstate
+*.tfstate.*
+
+# secrets
+secrets.tfvars
