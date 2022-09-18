@@ -8,3 +8,6 @@
 
 # secrets
 secrets.tfvars
+
+# swap files
+*.swp
